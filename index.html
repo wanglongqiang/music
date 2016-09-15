@@ -1,0 +1,168 @@
+<html>
+<head>
+<title>甄T音乐播放器v1.0</title>
+<meta charset="utf-8">
+
+<link rel="stylesheet" type="text/css" href="css/scroll.css">
+<link rel="stylesheet" type="text/css" href="css/music.css">
+<script>if (typeof module === 'object') {window.module = module; module = undefined;}</script>
+<script type="text/javascript" src="js/jquery-1.10.2.js"></script>
+<script type="text/javascript" src="js/jquery-ui.js"></script>
+<script type="text/javascript" src="js/canvas.js"></script>
+<script type="text/javascript" src="js/mousewheel.js"></script>	
+<script type="text/javascript" src="js/scroll.js"></script>
+<script type="text/javascript" src="js/music.js"></script>
+<script type="text/javascript" src="lib/knockout/knockout-3.2.0.debug.js"></script>
+<script type="text/javascript" src="lib/ID3/id3-minimized.js"></script>
+<script>
+	if (window.module) {
+		module = window.module;
+	} 
+</script>
+
+</head>
+<body>
+	<!--模糊画布-->
+	<div class="blur">
+		<canvas style="width:1366px;height:700px;opacity:0;min-height:600px;min-width:1000px" width="1366" height="700" id="canvas">
+	</div>
+	<div class="playerMain">
+		<div class="top">
+			<a href="#" class="logo"></a>
+			<div class="search">
+				<div type="submit" class="searchBtn"></div>
+				<input type="text" class="searchTxt">
+			</div>
+			<!--mainNav后续会添加一些个人信息登录 ，个人空间等内容，退出程序， 最大化 最小话等-->
+			<div class="mainNav">
+			</div>
+		</div>
+		<div class="middle">
+			<div class="mainWrap">
+				<div class="leftBar">
+					<ul class="menuUL">
+						<li class="menuLi cur">
+							<a href="#">
+								<i class="icon iplay"></i>
+								正在播放
+							</a>
+						</li>
+						<li class="menuLi">
+							<a href="#">
+								<i class="icon ihst"></i>
+								播放历史(功能未添加)
+							</a>
+						</li>
+						<li class="menuLi">
+							<a href="#">
+								<i class="icon ishouc"></i>
+								我收藏的单曲(功能未添加)
+							</a>
+						</li>
+					</ul>
+					<audio id="audio" src=""></audio>
+				</div>
+				<div class="mainBody">
+					<div class="playHd">
+						<div class="phInner">
+							<div class="col1">
+								<input class="checkAll" type="checkbox" select="0">
+							</div>
+							<div class="col2">歌曲</div>
+							<div class="col3">演唱者</div>
+							<div class="col4">专辑</div>
+							<div class="col5"></div>
+						</div>
+					</div>
+					<div class="playBd">
+						<div class="scrollView">
+							<ul class="songUL" data-bind="foreach:modelContent">
+								<li class="songList">
+									<div class="songLMain">
+										<div class="check">
+											<input class="checkIn" type="checkbox" select="0">
+										</div>
+										<div class="start" >
+											<em data-bind="attr: {'sonN': id, 'songPath': path, 'songName':songName}, text:id"></em>
+										</div>
+										<div class="songBd">
+											<div class="col2 colsn" data-bind='text:songName'></div>
+											<div class="col3 colcn" data-bind='text:songer'></div>
+											<div class="col4" data-bind='text:album'></div>
+										</div>
+										<div class="control">
+											<a class="cicon love"></a>
+											<a class="cicon more" style="display:none"></a>
+											<a class="cicon dele" style="display:none"></a>
+										</div>
+									</div>									
+								</li>
+							</ul>
+						</div>
+					</div>
+					<div class="playFt">
+						<div class="track">
+							<div class="uiItem">
+								<a class="itIcon itAdd">增加</a>
+								<input type="file" id="itAddSong" accept='.mp3, .wma' onchange="loadFile(this)"></input>
+							</div>
+							<div class="uiItem">
+								<a class="itIcon itDele">删除</a>
+							</div>
+							<div class="uiItem">
+								<a class="itIcon itShou">收藏</a>
+							</div>
+							<div class="uiItem">
+								<a class="itIcon itMore">更多</a>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="mainOuther">
+					<div class="albumCover">
+							<img style="display:none" src="images/background.jpg" id="canvas1">
+					</div>
+					<div id="lyr"></div>
+				</div>
+			</div>
+		</div>
+		<div class="bottom">
+			<div class="playerWrap">
+				<div class="playerCon">
+					<a class="pbtn prevBtn"></a>
+					<a class="pbtn playBtn" isplay="0"></a>
+					<a class="pbtn nextBtn"></a>
+					<a class="stop"></a>
+					<a class="mode" playMode="0"></a>
+				</div>
+				<div class="playInfo">
+					<div class="trackInfo">
+						<a href="#" class="songName">歌曲</a>
+						-
+						<a href="#" class="songPlayer">歌手</a>
+					</div>
+					<div class="playerLength">
+						<div class="position">00:00</div>
+						<div class="progress">
+							<div class="pro1"></div>
+							<div class="pro2">
+								<a href="#" class="dian"></a>
+							</div> 
+						</div>
+						<div class="duration">00:00</div>
+					</div>
+				</div>
+				<div class="vol">
+					<a href="#" class="pinBtn"></a>
+					<div class="volm">
+						<div class="volSpeaker"></div>
+						<div class="volControl">
+							<a href="#" class="dian2"></a>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</body>
+</html>

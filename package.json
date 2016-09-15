@@ -1,0 +1,18 @@
+{
+  "name": "ZhenTMusic",
+  "version": "1.0.0",
+  "description": "musicplayer",
+  "main": "index.js",
+  "scripts": {
+    "start": "electron ."
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://www.baidu.com"
+  },
+  "author": "wanglqg",
+  "license": "BSD-2-Clause",
+  "devDependencies": {
+    "electron-prebuilt": "^1.2.0"
+  }
+}

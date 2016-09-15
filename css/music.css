@@ -1,0 +1,793 @@
+/**********一些整体样式（包括body,input,伪元素清楚浮动等）***************/
+* {
+	padding: 0;
+	margin: 0;
+}
+body {
+	width: 100%;
+	height: 100%;
+	font-family: "Helvetica Neue","Hiragino Sans GB","Microsoft Yahei",Helvetica,Arial,sans-serif;
+}
+li { 
+	list-style: none;
+}
+input {
+	border:0;
+}
+input:focus {
+	outline: none;
+}
+html { 
+	overflow-y: hidden;
+	overflow-x:hidden;
+}
+a {
+	text-decoration: none;
+	cursor: pointer;
+}
+.songUL li {
+	cursor: pointer;
+}
+.clear:after {
+	content: '.';
+	clear: both;
+	display: block;
+	height: 0;
+	visibility: hidden;
+	font-size: 0;
+	line-height: 0;
+}
+/***********整体框架样式**************/
+.blur {
+	width: 100%;
+	height: 100%;
+	position: fixed;
+	overflow: hidden;
+	top: 0;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	z-index: 0;
+}
+.playerMain {
+	width: 100%;
+	height: 100%;
+	min-height: 500px;
+	min-width: 930px;
+	transition:all 0.2s;
+}
+.top { 
+	position: absolute;
+	top: 0;
+	width: 100%;
+	height: 56px;
+	background: url("../css/images/bottomRp.png") repeat 0 0;
+}
+.middle {
+	position: absolute;
+	top: 60px;
+	bottom: 80px;
+	background-color: #fff;
+	width: 100%;
+}
+.mainWrap {
+	position: relative;
+	height: 100%;
+}
+/*头部*/
+.logo { 
+    width: 20%;
+    min-width: 200px;
+    height: 60px;
+    float: left;
+    display: block;
+    background: url("../css/images/music.png") no-repeat 0 50%;
+}
+.search {
+	min-width: 585px;
+    width: calc(60% - 15px);
+	margin-left:15px;
+    float: left;
+    margin-top: 15px;
+    height: 30px;
+    background: url("../css/images/search.png") no-repeat 0 0;
+}
+.searchBtn {
+	float: left;
+    width: 18px;
+    height: 28px;
+    padding: 1px 6px;
+    background: url("../css/images/sbtn.png") no-repeat;
+    cursor: pointer;
+    margin-top: 6px;
+    margin-left: 5px;
+}
+.searchTxt {
+	float: left;
+	width: 186px;
+	height: 30px;
+	padding: 3px;
+	vertical-align: middle;
+	background-color: transparent;
+	color: #fff;
+}
+.mainNav {
+	float: right;
+	min-width:200px;
+	width:20%;
+	height: 60px;
+}
+.leftBar {
+	width: 200px;
+	height: 100%;
+	padding: 0 0 0 10px;
+	border-right: 1px solid #ddd;
+	float:left;
+	box-sizing: border-box;
+}
+.menuUL {
+	width: 100%;
+	padding: 10px 0;
+	border-bottom: 1px solid #ccc;
+}
+.menuLi{
+	width: 100%;
+	height: 36px;
+}
+.menuLi a {
+	font-size: 12px; 
+	display: block;
+	height: 36px;
+	line-height: 36px;
+	padding-left: 36px;
+	border-radius: 4px;
+	position: relative;
+	color: #333;
+	text-decoration: none;
+}
+.cur a {
+	background-color: #f0f0f0;
+}
+.icon {
+	position: absolute;
+	top: 9px;
+	left: 9px;
+	width: 18px;
+	height: 18px;
+}
+.iplay {
+	background: url("../css/images/littleIcon.png") 0 -358px;
+}
+.ihst {
+	background:url("../css/images/littleIcon.png") 0 -376px;
+}
+.ishouc {
+	background:url("../css/images/littleIcon.png") 0 -394px;
+}
+
+/*播放列表*/
+.mainBody {
+	height: 100%;
+	float:left;
+	width: calc(100% - 400px);
+}
+
+/*专辑信息*/
+.mainOuther {
+    height: 100%;
+    float: right;
+    width: 200px;
+	border-left: 1px solid #ddd;
+	box-sizing: border-box;
+}
+.albumCover {
+    padding-top: 10px;
+    text-align: center;
+}
+.playHd {
+	width: calc(100% - 400px);
+	height: 36px;
+	line-height: 36px;
+	padding-top: 9px;
+	position: absolute;
+	top: 0;
+	border-bottom: 1px solid #ccc;
+}
+.phInner {
+	height: 100%;
+	overflow: hidden;
+}
+.col2{
+	width: 250px;
+	height: 100%;
+	float: left;
+	padding-right: 0.2%;
+	line-height: 36px;
+	text-align: left;
+	color: #aaa;
+	font-size: 12px;
+	box-sizing: border-box;
+}
+.col3, .col4{
+	width: 125px;
+	height: 100%;
+	float: left;
+	padding-right: 0.2%;
+	line-height: 36px;
+	text-align: left;
+	color: #aaa;
+	font-size: 12px;
+	box-sizing: border-box;
+}
+.col1 {
+	width: 60px;
+	height: 100%;
+	float: left;
+	padding-right: 0.2%;
+	line-height: 36px;
+	text-align: left;
+	color: #aaa;
+	font-size: 12px;
+	box-sizing: border-box;
+	padding-left: 10px;
+    padding-top: 10px;
+}
+.col5 {
+	width: calc(100% - 670px);
+	height: 100%;
+	float: left;
+	padding-right: 0.2%;
+	line-height: 36px;
+	text-align: left;
+	color: #aaa;
+	font-size: 12px;
+	box-sizing: border-box;
+}
+.playBd {    
+	margin-top: 46px;
+    bottom: 60px;
+    height: calc(100% - 106px);
+}
+.scrollView {
+	height: 100%;
+	position: relative;
+	outline: 0;
+	-webkit-user-drag:none;
+}
+.songList {
+	color: #333;
+	border-bottom: 1px solid #ebebeb;
+	position: relative;
+}
+.check {
+	float:left;
+	height: 16px;
+	width: 16px;
+	left: 0;
+	padding: 12px 0 12px 10px;
+}
+.checkIn,.checkAll {
+	width: 16px;
+	height: 16px;
+	cursor: pointer;
+	background: url("../css/images/littleIcon.png") -1px -710px;
+	-webkit-appearance:none;
+}
+.start {
+	line-height: 41px;
+	text-align: center;
+	float: left;
+	width: 36px;
+	height: 41px;
+	text-align: center;
+}
+.start em {
+	font-style: 
+	normal;font-family: Arial;
+	color: #aaa;
+	font-size: 12px;
+}
+.songBd {
+	height: 41px;
+	line-height: 41px;
+	width: 500px;
+	float: left;
+}
+.songBd .col {
+	color: #333;
+	line-height: 41px;
+}
+.col {
+	cursor: default;
+}
+.control {
+	width: 70px;
+	height: 41px;
+	float: left;
+}
+.cicon {
+	cursor: pointer;
+	display: block;
+	width: 18px;
+	height: 18px;
+	float: left;
+	margin-top: 11px;
+	background: url("../css/images/littleIcon.png") no-repeat;
+	}
+.love {
+	background-position: -28 -130px;
+	right: 86px;
+}
+.love:hover {
+	background-position: 0 -155px;
+}
+.more {
+	background-position: 0 -473px;
+    margin-left: 5px;
+	display: none;
+}
+.more:hover {
+	background-position: -28px -473px;
+}
+.dele {
+    background-position: 0 -491px;
+    right: 20px;
+    margin-left: 5px;
+	display: none;
+}
+.dele:hover {
+	background-position: -28px -491px;
+}
+.playFt {
+	width: calc(100% - 400px);
+    height: 45px;
+    padding-top: 14px;
+    border-top: 1px solid #ccc;
+    position: absolute;
+    bottom: 0px;
+}
+.track {
+	height: 30px;
+	width: 100%;
+	line-height: 30px;
+	position: relative;
+	padding-left: 12px;
+}
+.uiCheck {
+	position: absolute;
+	left: 0;
+	width: 16px;
+	height: 16px;
+	padding: 7px 10px;
+}
+.uiItem {
+	float: left;
+	height: 30px;
+	line-height:30px;
+	padding-right: 10px;
+	cursor:pointer;
+}
+.itIcon {
+	display: block;
+	color: #333;
+	font-size: 12px;
+}
+.itDele {
+	width: 73px;
+	height: 30px;
+	background-image:url("../css/images/FShow.png");
+	text-indent: 38px;
+}
+.itDele:hover {
+	background-position: 0 -30px;
+}
+.itAdd {
+	width: 73px;
+	height: 30px;
+	background-image:url("../css/images/FShow.png");
+	text-indent: 38px;
+	background-position: -225px 0;
+}
+.itAdd:hover {
+	background-position: -225px -30px;
+}
+#itAddSong {
+	width: 73px;
+    height: 30px;
+    position: absolute;
+    left: 12px;
+    top: 4px;
+    opacity: 0;
+    cursor: pointer;
+}
+.itShou {
+	width: 73px;
+	height: 30px;
+	background-image:url("../css/images/FShow.png");
+	text-indent: 38px;
+	background-position: -150px 0;
+}
+.itShou:hover {
+	background-position: -150px -30px;
+}
+.itJin {
+	width: 120px;
+	height: 30px;
+	background-image:url("../css/images/FShow.png");
+	text-indent: 38px;
+	background-position: -225px 0;
+}
+.itJin:hover {
+	background-position: -225px -30px;
+}
+.itMore {
+	width: 73px;
+	height: 30px;
+	background-image:url("../css/images/FShow.png");
+	text-indent: 38px;
+	background-position: -348px 0;
+}
+.itMore:hover {
+	background-position: -348px -30px;
+}
+/*底部按键*/
+.bottom {
+	position: absolute;
+	left: 0;
+	bottom: 0;
+	width: 100%;
+	height: 80px;
+	background:url("../css/images/bottomRp.png") repeat;
+}
+.playerWrap {
+	position: relative;
+	height: 100%;
+	padding-left: 300px;
+	padding-right: 230px;
+}
+.playerCon {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 300px;
+	height: 100%;
+}
+.pbtn {
+	display: block;
+	width: 30px;
+	height: 30px;
+	position: absolute;
+	background-image: url("../css/images/littleIcon.png");
+}
+.prevBtn {
+	top: 25px;
+	left: 38px;
+	background-position: 0 -90px;
+}
+.playBtn {
+	top: 25px;
+	left: 91px;
+}
+.nextBtn {
+	background-position: 0 -60px;
+	top:25px;
+	left: 144px;
+	}
+.stop {
+	display: block;
+	width:20px;
+	height: 18px;
+	position: absolute;
+	top: 31px;
+	left: 197px;
+	background:url("../css/images/stop.png");
+}
+.mode {
+	display: block;
+	width:20px;
+	height: 18px;
+	position: absolute;
+	top: 31px;
+	left: 245px;
+	background:url("../css/images/littleIcon.png") 0 -181px;
+}
+.playInfo {
+	height: 100%;
+	position: relative;
+}
+.trackInfo {
+	position: absolute;
+	width: 100%;
+	height:18px;
+	line-height: 18px;
+	top: 20px;
+	color: #fff;
+}
+.trackInfo a {
+	color: #fff;
+	font-size: 14px;
+	text-decoration: none;
+}
+.trackCon {
+	float: right;
+	width: 100px;
+	height: 18px;
+}
+.tc1 {
+	width: 18px;
+	height: 18px;
+	display: block;
+	position: absolute;
+	top: 0;
+	right: 66px;
+}
+.songName,.songPlay {
+	float: left;
+}
+.tc1 {
+	position: absolute;
+	width: 18px;
+	height: 18px;
+	top: 0;
+	right: 66px;
+	background-image: url("../css/images/littleIcon.png");
+	background-position: 0 -241px;
+}
+.tc2 {
+	position: absolute;
+	width: 18px;
+	height: 18px;
+	top: 0;
+	right: 33px;
+	background-image: url("../css/images/littleIcon.png");
+	background-position: 0 -259px;
+}
+.tc3 {
+	position: absolute;
+	width: 18px;
+	height: 18px;
+	top: 0;
+	right: 0;
+	background-image: url("../css/images/littleIcon.png");
+	background-position: 0 -277px;
+}
+.playerLength {
+	width: 100%;
+	height: 20px;
+	font-size: 10px;
+	position: absolute;
+	top: 43px;
+}
+.position {
+	width: 40px;
+	height: 18px;
+	line-height: 18px;
+	position: absolute;
+	left:0;
+	color: #fff;
+	opacity: 0.3
+}
+.duration {
+	width: 40px;
+	height: 18px;
+	line-height: 18px;
+	position: absolute;
+	right:0;
+	color: #fff;
+	opacity: 0.3;
+	text-align: right;
+}
+.progress {
+	position: absolute;
+	left: 40px;
+	right: 40px;
+	height: 18px;
+}
+.pro1,.pro2 {
+	position: absolute;
+	left: 0;
+	height: 100%;
+	width: 100%;
+	background: url("../css/images/pro.png") repeat-x 0 50%;
+}
+.dian,.dian2 {
+	display: block;
+	width: 10px;
+	height: 18px;
+	position: absolute;
+	top: 0;
+	background: url("../css/images/littleIcon.png") no-repeat -32px -338px;
+}
+.dian2 {
+	left: 79px;
+}
+.vol {
+	position: absolute;
+	top: 0;
+	right: 0;
+	width:230px;
+	height: 100%;
+}
+.volm {
+	position: absolute;
+	width: 110px;
+	height: 18px;
+	top: 31px;
+	right:40px;
+}
+.volSpeaker {
+	position: absolute;
+	width: 18px;
+	height: 18px;
+	background: url("../css/images/littleIcon.png") no-repeat 0 -295px;
+}
+.volControl {
+	position: absolute;
+	left:24px;
+	width: 80px;
+	height: 18px;
+	background: url("../css/images/pro.png") repeat-x 0 50%;
+}
+
+/*歌曲列表效果*/
+.songList:hover .start em {
+	cursor: pointer;
+	display: block;
+	width: 18px;
+	height: 18px;
+	margin: 11px 9px;
+	background: url("../css/images/play.png") 0 0;
+	line-height: 18px;
+	color:transparent;
+}
+.songList:hover {
+	background-color: #f5f5f5;
+}
+.start em:hover {
+	background-position:-16px 0;
+}
+
+/*歌曲漫游*/
+.manyou {
+	height: 41px;
+	padding: 0 36px 0 31px;
+	position: relative;
+}
+.songLMain {
+	width: 100%;
+	height: 40px;
+	line-height: 41px;
+}
+.manyouA {
+	position: absolute;
+	display: block;
+	width: 60px;
+	height: 30px;
+	padding-left: 35px;
+	left: 60px;
+	top: 0;
+	font-size: 12px;
+	line-height: 30px;
+	color: #fff;
+	background: url("../css/images/manyou.png");
+}
+
+/*fadein动画*/
+@-webkit-keyframes fadeIn/* Safari 和 Chrome */
+{
+0%   {opacity: 0;}
+10%	 {opacity: 0.1}
+20%	 {opacity: 0.2}
+20%  {opacity: 0.2;}
+30%  {opacity: 0.3;}
+40%  {opacity: 0.4;}
+50%  {opacity: 0.5;}
+60%  {opacity: 0.6;}
+70%  {opacity: 0.7;}
+80%  {opacity: 0.8;}
+90%  {opacity: 0.9;}
+100% {opacity: 1;}
+}
+@-moz-keyframes fadeIn
+{
+0%   {opacity: 0;}
+10%	 {opacity: 0.1}
+20%	 {opacity: 0.2}
+20%  {opacity: 0.2;}
+30%  {opacity: 0.3;}
+40%  {opacity: 0.4;}
+50%  {opacity: 0.5;}
+60%  {opacity: 0.6;}
+70%  {opacity: 0.7;}
+80%  {opacity: 0.8;}
+90%  {opacity: 0.9;}
+100% {opacity: 1;}
+}
+@keyframes myfirst
+{
+0%   {opacity: 0;}
+10%	 {opacity: 0.1}
+20%	 {opacity: 0.2}
+20%  {opacity: 0.2;}
+30%  {opacity: 0.3;}
+40%  {opacity: 0.4;}
+50%  {opacity: 0.5;}
+60%  {opacity: 0.6;}
+70%  {opacity: 0.7;}
+80%  {opacity: 0.8;}
+90%  {opacity: 0.9;}
+100% {opacity: 1;}
+}
+
+@-moz-keyframes myfirst /* Firefox */
+{
+0%   {opacity: 0;}
+10%	 {opacity: 0.1}
+20%	 {opacity: 0.2}
+20%  {opacity: 0.2;}
+30%  {opacity: 0.3;}
+40%  {opacity: 0.4;}
+50%  {opacity: 0.5;}
+60%  {opacity: 0.6;}
+70%  {opacity: 0.7;}
+80%  {opacity: 0.8;}
+90%  {opacity: 0.9;}
+100% {opacity: 1;}
+}
+
+@-webkit-keyframes myfirst /* Safari 和 Chrome */
+{
+0%   {opacity: 0;}
+10%	 {opacity: 0.1}
+20%	 {opacity: 0.2}
+20%  {opacity: 0.2;}
+30%  {opacity: 0.3;}
+40%  {opacity: 0.4;}
+50%  {opacity: 0.5;}
+60%  {opacity: 0.6;}
+70%  {opacity: 0.7;}
+80%  {opacity: 0.8;}
+90%  {opacity: 0.9;}
+100% {opacity: 1;}
+}
+
+@-o-keyframes myfirst /* Opera */
+{
+0%   {opacity: 0;}
+10%	 {opacity: 0.1}
+20%	 {opacity: 0.2}
+20%  {opacity: 0.2;}
+30%  {opacity: 0.3;}
+40%  {opacity: 0.4;}
+50%  {opacity: 0.5;}
+60%  {opacity: 0.6;}
+70%  {opacity: 0.7;}
+80%  {opacity: 0.8;}
+90%  {opacity: 0.9;}
+100% {opacity: 1;}
+}
+#canvas {
+	opacity: 1;-webkit-animation: fadeIn 0.7s 0.1s ease both;
+	-moz-animation: fadeIn 0.7s 0.1s ease both;
+	-ms-animation: fadeIn 0.7s 0.1s ease both;
+	-o-animation: fadeIn 0.7s 0.1s ease both;
+	animation: .7s ease 0.1s normal both 1 fadeIn;
+}
+#canvas1{
+	width: 180px;
+    height: 180px;
+}
+
+/*歌词部分*/
+#lyr {
+	height: calc(100% - 300px);
+	margin-top:30px;
+    width: 200px;
+    font-size: 12px;
+    text-align: center;
+    padding-top: 80px;
+    font-family: 'Helvetica Neue', 'Hiragino Sans GB', 'Microsoft Yahei', Helvetica, Arial, sans-serif;
+    color: #333;
+    overflow: hidden;
+    box-sizing: border-box;
+}
